@@ -15,7 +15,7 @@ import ChatLayout from "./Components/Utils/ChatLayout"
 import {Routes,Route} from "react-router-dom"
 import  {socket}  from "./services/socket/socket";
 import { useDispatch } from "react-redux";
-import { addNotification } from "./slices/notificationSlice";
+import { addNotification } from "./slices/NotificationSlice";
 import './App.css'
 import {authEndpoints} from "./services/apis"
 import { apiConnector } from "./services/apiConnector";

@@ -1,5 +1,5 @@
 import { io } from "socket.io-client";
-const BASE_URL3=import.meta.env.VITE_API_URL3;
+const BASE_URL3=import.meta.env.VITE_API_URL3 || "http://localhost:3003";
 
 export const socket = io(BASE_URL3, {
   withCredentials: true,

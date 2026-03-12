@@ -35,7 +35,7 @@ const PersonelChat = () => {
   const bottomRef = useRef<HTMLDivElement | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const hasLoadedRef = useRef(false);
-    const [socketReady,setSocketReady] = useState(false)
+    
    const [isFriend,setIsFriend] = useState(true)
   const [user, setUser] = useState<IUser | null>(null);
   const [chats, setChats] = useState<any[]>([]);
@@ -91,7 +91,7 @@ useEffect(()=>{
     if (!chatid) return;
     socket.emit("joinChat", chatid);
 
-    return () => socket.emit("leaveChat", chatid);
+    return () => {socket.emit("leaveChat", chatid);}
   }, [chatid]);
 
   // -------------------------
@@ -180,7 +180,7 @@ useEffect(()=>{
 
  socket.on("friendAdded",handleFriendAdded)
 
- return ()=>socket.off("friendAdded",handleFriendAdded)
+ return ()=>{socket.off("friendAdded",handleFriendAdded)}
 
 },[user])
 
@@ -196,7 +196,7 @@ useEffect(()=>{
 
  socket.on("friendRemoved",handleFriendRemoved)
 
- return ()=>socket.off("friendRemoved",handleFriendRemoved)
+ return ()=>{socket.off("friendRemoved",handleFriendRemoved)}
 
 },[user])
 
@@ -231,7 +231,7 @@ useEffect(()=>{
   useEffect(() => {
     if (!chatid) return;
     socket.on("newMessage", handleNewMessage);
-    return () => socket.off("newMessage", handleNewMessage);
+    return () => {socket.off("newMessage", handleNewMessage);}
   }, [chatid, isAtBottom, loggedInUserId]);
 
   // -------------------------
@@ -247,7 +247,7 @@ useEffect(()=>{
         )
       );
     });
-    return () => socket.off("messageDelivered");
+    return () => {socket.off("messageDelivered");}
   }, []);
 
   useEffect(() => {
@@ -261,7 +261,7 @@ useEffect(()=>{
       );
     };
     socket.on("bulkDelivered", handleBulkDelivered);
-    return () => socket.off("bulkDelivered", handleBulkDelivered);
+    return () => {socket.off("bulkDelivered", handleBulkDelivered);}
   }, []);
 
   // -------------------------
@@ -286,7 +286,7 @@ useEffect(()=>{
       );
     };
     socket.on("chatSeen", handleChatSeen);
-    return () => socket.off("chatSeen", handleChatSeen);
+    return () => {socket.off("chatSeen", handleChatSeen);}
   }, [chatid]);
 
   useEffect(() => {
@@ -437,7 +437,7 @@ useEffect(()=>{
           {unreadCount > 0 && (
             <div className="fixed bottom-20 right-5 z-50">
               <button
-                onClick={scrollToBottom}
+                onClick={() => scrollToBottom(true)}
                 className="bg-green-500 text-white p-2 rounded-full shadow-lg hover:bg-green-600 flex items-center gap-x-1"
               >
                 <FaAngleDown />

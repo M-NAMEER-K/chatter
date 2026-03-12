@@ -1,5 +1,5 @@
-const BASE_URL1=import.meta.env.VITE_API_URL1;
-const BASE_URL2=import.meta.env.VITE_API_URL2;
+const BASE_URL1=import.meta.env.VITE_API_URL1 || "http://localhost:3000";
+const BASE_URL2=import.meta.env.VITE_API_URL2 || "http://localhost:3001";
 
 
 

@@ -18,12 +18,12 @@ export const getPendingRequestAPI = async():Promise<AxiosResponse> =>{
 }
   
 export const acceptRequestAPI = async(id: string):Promise<void> =>{
-          const result=await apiConnector({method:"POST",url:`${requestEndpoints.ACCEPT_REQUEST}/${id}`});
+          await apiConnector({method:"POST",url:`${requestEndpoints.ACCEPT_REQUEST}/${id}`});
 }
 
 
 export const rejectRequestAPI = async(id: string):Promise<void> =>{
-             const result=await apiConnector({method:"POST",url:`${requestEndpoints.REJECT_REQUEST}/${id}`});
+             await apiConnector({method:"POST",url:`${requestEndpoints.REJECT_REQUEST}/${id}`});
 }
 
 export const sentRequestAPI=async():Promise<AxiosResponse>=>{

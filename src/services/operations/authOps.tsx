@@ -160,7 +160,7 @@ export const forgotPasswordAPI=async(email:string):Promise<void>=>{
 
 export const ResetPasswordAPI=async(token:string|undefined,password:string,navigate:NavigateFunction):Promise<void>=>{
        
-     const result=await apiConnector({method: "POST",url: `${authEndpoints.RESET_PASSWORD}/${token}`,body: { password }});
+     await apiConnector({method: "POST",url: `${authEndpoints.RESET_PASSWORD}/${token}`,body: { password }});
 
     navigate("/login");
 }

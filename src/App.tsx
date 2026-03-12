@@ -1,4 +1,4 @@
-import {useEffect,useState} from "react"
+import {useEffect} from "react"
 import Register from "./Components/User/Register"
 import Verify from "./Components/User/Verify"
 import ForgotPassword from "./Components/User/ForgotPassword"
@@ -15,7 +15,7 @@ import ChatLayout from "./Components/Utils/ChatLayout"
 import {Routes,Route} from "react-router-dom"
 import  {socket}  from "./services/socket/socket";
 import { useDispatch } from "react-redux";
-import { addNotification } from "./slices/NotificationSlice";
+import { addNotification } from "./slices/notifySlice";
 import './App.css'
 import {authEndpoints} from "./services/apis"
 import { apiConnector } from "./services/apiConnector";

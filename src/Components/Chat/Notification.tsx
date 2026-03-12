@@ -7,7 +7,7 @@ import {
 } from "../../services/operations/requestOps";
 
 import { useSelector, useDispatch } from "react-redux";
-import { clearNotifications,removeNotificationBySenderId } from "../../slices/notificationSlice";
+import { clearNotifications,removeNotificationBySenderId } from "../../slices/notifySlice";
 import { socket } from "../../services/socket/socket";
 
 interface IRequest {

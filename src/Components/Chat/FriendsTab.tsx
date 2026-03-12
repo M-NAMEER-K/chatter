@@ -41,7 +41,7 @@ const FriendsTab = () => {
 
     socket.on("friendAdded", handleFriendAdded);
 
-    return () => socket.off("friendAdded", handleFriendAdded);
+    return () => {socket.off("friendAdded", handleFriendAdded);}
 
   }, []);
 
@@ -54,7 +54,7 @@ const FriendsTab = () => {
 
     socket.on("friendRemoved", handleFriendRemoved);
 
-    return () => socket.off("friendRemoved", handleFriendRemoved);
+    return () => {socket.off("friendRemoved", handleFriendRemoved);}
 
   }, []);
 

@@ -59,7 +59,7 @@ useEffect(() => {
 };
 
   socket.on("chatListUpdate", handleNewMessage);
-  return () => socket.off("chatListUpdate", handleNewMessage);
+  return () => {socket.off("chatListUpdate", handleNewMessage);}
 
 }, []);
   // Listen chatSeen event
@@ -85,7 +85,7 @@ useEffect(() => {
 
     socket.on("chatSeen", handleChatSeen);
 
-    return () => socket.off("chatSeen", handleChatSeen);
+    return () => {socket.off("chatSeen", handleChatSeen);}
 
   }, []);
 

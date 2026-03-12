@@ -2,7 +2,7 @@ import {useState,useEffect,useRef} from "react"
 import { GoLock } from "react-icons/go";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
-import Cookies from "js-cookie"
+
 import {useSelector} from "react-redux"
 import type{RootState} from "../../reducer/store"
 import {useSearchParams,Link,useNavigate} from "react-router-dom"
@@ -68,9 +68,9 @@ const email:string = searchParams.get("email")||"";
                     return;
                  }
                    setError("");
-                   setLoading(true);
+                   setLoading(true); 
                    try{
-                const result=await verifyAPI({email,otp:otpString},navigate);
+                await verifyAPI({email,otp:otpString},navigate);
                    
                   /*Cookies.set("token",result.token,{
                     expires:15,
@@ -141,9 +141,11 @@ const handleResendOtp=async()=>{
                                               onKeyDown={e=>handleKeyDown(index,e)}
                                               onPaste={index===0?handlePaste:undefined}
                                               className="w-[10%] text-white bg-gray-700  rounded-lg p-2  focus:outline-1  focus:outline-gray-300"/>
+                                            
     ))
                                       }
                                      </div>
+                                       {error && (<p className="text-red-400 text-sm text-center">{error}</p>)}
                                   
                               </div>
                               <button className="bg-blue-700 hover:bg-blue-500 w-full p-2 rounded-lg flex justify-center items-center gap-x-3 " type="submit"> Verify<FaLongArrowAltRight  size={30}/></button>

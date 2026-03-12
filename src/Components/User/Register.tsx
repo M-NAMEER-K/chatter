@@ -66,7 +66,7 @@ const Register=()=>{
                 setLoading(true);
                 try{      
                          
-                     const result=await registerAPI({email,password,name},navigate);
+                     await registerAPI({email,password,name},navigate);
                         
                            
                         

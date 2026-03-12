@@ -135,9 +135,7 @@ const Profile = () => {
     }
   };
 
-  const removeFriend=()=>{
-      alert("this friend is removed ");
-  }
+  
 
   return (
     <div className="w-screen h-screen flex flex-col  items-center bg-gray-700 text-white overflow-hidden">

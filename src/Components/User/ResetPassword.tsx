@@ -31,7 +31,7 @@ const ResetPassword = () => {
                        }
                      
                        setErrors({});
-         const result=await ResetPasswordAPI(token,password,navigate);
+         await ResetPasswordAPI(token,password,navigate);
     
   };
 

@@ -11,9 +11,9 @@ const ChatsTab = () => {
 
   const [chats, setChats] = useState<any[]>([]);
   const navigate = useNavigate();
- const currentPath = window.location.pathname;
+
   const searchQuery = useSelector((state: RootState) => state.search.query);
-  const user = useSelector((state: RootState) => state.auth.user);
+ 
    
    
   // Fetch chats initially

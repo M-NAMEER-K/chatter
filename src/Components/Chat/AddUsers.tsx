@@ -21,7 +21,7 @@ const AddUsers = () => {
   const [requestedUsers, setRequestedUsers] = useState<Set<string>>(new Set());
   const [receivedRequests, setReceivedRequests] = useState<Set<string>>(new Set());
 
-  const [friends, setFriends] = useState<Set<string>>(new Set());
+ 
   const [loading, setLoading] = useState(false);
    
   const loggedInUserId = useSelector((state: RootState) => state.auth.user?._id);

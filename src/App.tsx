@@ -12,7 +12,7 @@ import Settings from "./Components/User/Settings"
 import AddUsers from "./Components/Chat/AddUsers"
 import Layout from "./Components/Utils/Layout"
 import ChatLayout from "./Components/Utils/ChatLayout"
-import {Routes,Route} from "react-router-dom"
+import {Routes,Route,Navigate} from "react-router-dom"
 import  {socket}  from "./services/socket/socket";
 import { useDispatch } from "react-redux";
 import { addNotification } from "./slices/notifySlice";
@@ -164,6 +164,7 @@ scrollbar-track-gray-700
  ">
 
            <Routes>
+              <Route path="/" element={<Navigate to="/register" />} />
               <Route path="/register" element={<Register/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/forgotPassword" element={<ForgotPassword/>}/>      

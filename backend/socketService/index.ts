@@ -9,7 +9,7 @@ import profileRoute from "./routes/profileNotification"
 import messageRoute from "./routes/messageNotification"
 
 dotenv.config();
-const PORT=3003;
+const PORT = process.env.PORT || 3003;
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

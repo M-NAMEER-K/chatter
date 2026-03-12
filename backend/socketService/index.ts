@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: ["chatter-seven-blue.vercel.app","http://localhost:5173"],
+  origin: ["https://chatter-seven-blue.vercel.app","http://localhost:5173"],
   credentials: true
 }));
 

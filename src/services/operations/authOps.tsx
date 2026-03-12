@@ -110,7 +110,7 @@ export const uploadProfilePicAPI = async (file: File):Promise<AxiosResponse> => 
   const formData = new FormData();
   formData.append("image", file);
 
-  const result= apiConnector({method: "POST",url:authEndpoints.SET_PROFILE_PICTURE,body: formData });
+  const result= await apiConnector({method: "POST",url:authEndpoints.SET_PROFILE_PICTURE,body: formData });
    return result;
 };
 

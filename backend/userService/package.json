@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "dev": "nodemon",
-    "start": "ts-node index.ts"
-    
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "",
@@ -30,7 +30,6 @@
     "cloudinary": "^1.41.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
-    "D": "^1.0.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",

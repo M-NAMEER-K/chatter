@@ -15,7 +15,7 @@ export const isAuth = async(req: AuthenticatedRequest, res: Response, next: Next
   const token = req.cookies.token;
      console.log("token:",token);
   if (!token) {
-    return res.status(429).json({ message: "No token" });
+    return res.status(401).json({ message: "No token" });
   }
 
   try {

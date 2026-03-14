@@ -1,6 +1,6 @@
 import axios from "axios";
-import { setToken, setUser } from "../slices/authSlice";
-import { store } from "../reducer/store";
+/*import { setToken, setUser } from "../slices/authSlice";
+import { store } from "../reducer/store";*/
 
 export const axiosInstance = axios.create({
   withCredentials: true

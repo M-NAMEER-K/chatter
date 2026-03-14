@@ -22,7 +22,7 @@ axiosInstance.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-
+/*
 axiosInstance.interceptors.response.use(
 
   (response) => response,
@@ -46,6 +46,7 @@ axiosInstance.interceptors.response.use(
   }
 
 );
+*/
 
 
 export const apiConnector = async ({ method, url, body }: any) => {

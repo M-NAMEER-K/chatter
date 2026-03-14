@@ -69,9 +69,9 @@ export const getAllChats=async ( req:AuthenticatedRequest, res:Response) : Promi
                      try{
                const { data } = await axios.get(`${process.env.USER_SERVICE}/api/v1/getProfileData/${otherUserId}`,
   {
-    headers: {
-      Cookie: `token=${req.cookies.token}`,   // ⭐ manually forward cookie
-    },
+   headers: {
+  Authorization: req.headers.authorization
+},
   }
 );
 
@@ -364,9 +364,9 @@ if (undeliveredMessages.length > 0) {
           const { data } = await axios.get(
   `${process.env.USER_SERVICE}/api/v1/getProfileData/${otherUserId}`,
   {
-    headers: {
-      Cookie: `token=${req.cookies.token}`,   // ⭐ manually forward cookie
-    },
+   headers: {
+  Authorization: req.headers.authorization
+},
   }
 );
 console.log(data);
@@ -380,9 +380,9 @@ console.log(data);
               const friendshipRes = await axios.get(
     `${process.env.USER_SERVICE}/api/v1/checkFriendship/${otherUserId}`,
     {
-      headers: {
-        Cookie: `token=${req.cookies.token}`
-      }
+    headers: {
+  Authorization: req.headers.authorization
+}
     }
   );
 

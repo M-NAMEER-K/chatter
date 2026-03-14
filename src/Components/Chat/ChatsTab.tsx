@@ -23,7 +23,7 @@ const ChatsTab = () => {
 
       try {
         const res = await getAllChatsAPI();
-        console.log(res.data.data);
+        console.log(res);
         setChats(res.data.data);
       }
       catch (err) {

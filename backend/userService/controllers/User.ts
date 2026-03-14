@@ -64,7 +64,7 @@ try {
       console.error("Email sending error:", err);
       return res.status(500).json({
         success: false,
-        message: "Failed to send OTP email"
+        message: err.message
       });
     }
         await Otp.create({
@@ -80,7 +80,7 @@ try {
            console.log(err);
            return res.status(400).json({
             success:false,
-            message:err
+            message:err.message
            });
       }  
    

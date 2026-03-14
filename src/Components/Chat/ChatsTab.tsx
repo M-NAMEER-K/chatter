@@ -94,7 +94,7 @@ useEffect(() => {
 
   const filteredChats = chats
     .filter(chat =>
-      chat.user?.data?.name
+      chat.user?.name
         ?.toLowerCase()
         .includes(searchQuery.toLowerCase())
     )
@@ -138,10 +138,10 @@ useEffect(() => {
               {/* Profile */}
               <div className="px-3">
 
-                {chat.user?.data?.profileImage?.url ? (
+                {chat.user?.profileImage?.url ? (
 
                   <img
-                    src={chat.user.data.profileImage.url}
+                    src={chat.user?.profileImage.url}
                     className="w-[45px] h-[45px] rounded-full object-cover"
                   />
 

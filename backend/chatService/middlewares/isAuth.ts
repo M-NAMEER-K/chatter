@@ -12,7 +12,9 @@ export interface AuthenticatedRequest extends Request{
 }
 
 export const isAuth = async(req: AuthenticatedRequest, res: Response, next: NextFunction) => {
-  const token = req.cookies.token;
+  const token =
+  req.cookies?.token ||
+  req.header("Authorization")?.replace("Bearer ", "");
      console.log("token : ",token);
   if (!token) {
     return res.status(401).json({ message: "No token" });

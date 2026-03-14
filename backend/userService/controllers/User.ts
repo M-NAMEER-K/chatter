@@ -54,7 +54,19 @@ export const sendOtp=async(req:Request,res:Response):Promise<Response>=>{
         const hashedPassword = await bcrypt.hash(password, 10);
        // await redisClient.set(rateLimitKey, "true", { EX: 60 });
 
-       await mailSender(email,"RapidTalk - Email Verification",otpTemplate(otp, name));
+try {
+      await mailSender(
+        email,
+        "RapidTalk - Email Verification",
+        otpTemplate(otp, name)
+      );
+    } catch (err) {
+      console.error("Email sending error:", err);
+      return res.status(500).json({
+        success: false,
+        message: "Failed to send OTP email"
+      });
+    }
         await Otp.create({
               email,otp,name,password:hashedPassword,
                expiresAt: new Date(Date.now() + 60 * 1000)

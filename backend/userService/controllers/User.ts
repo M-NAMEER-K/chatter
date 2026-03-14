@@ -60,7 +60,7 @@ try {
         "RapidTalk - Email Verification",
         otpTemplate(otp, name)
       );
-    } catch (err) {
+    } catch (err:any) {
       console.error("Email sending error:", err);
       return res.status(500).json({
         success: false,
@@ -76,7 +76,7 @@ try {
           message:"Otp send to your mail"
        });
       }  
-      catch(err){
+      catch(err:any){
            console.log(err);
            return res.status(400).json({
             success:false,

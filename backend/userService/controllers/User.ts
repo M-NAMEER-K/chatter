@@ -68,7 +68,7 @@ export const sendOtp=async(req:Request,res:Response):Promise<Response>=>{
            console.log(err);
            return res.status(400).json({
             success:false,
-            message:"User not registered "
+            message:err
            });
       }  
    

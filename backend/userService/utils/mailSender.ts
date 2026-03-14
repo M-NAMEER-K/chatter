@@ -7,14 +7,17 @@ export const mailSender = async (
 ): Promise<void> => {
 
   const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-    auth: {
-      user: process.env.GMAIL!,
-      pass: process.env.PASS!,
-    },
-  });
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.GMAIL,
+    pass: process.env.PASS
+  },
+  tls: {
+    rejectUnauthorized: false
+  }
+});
 
   await transporter.sendMail({
     from: `"RapidTalk" <${process.env.GMAIL}>`,

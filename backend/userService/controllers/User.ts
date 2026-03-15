@@ -54,8 +54,7 @@ export const sendOtp=async(req:Request,res:Response):Promise<Response>=>{
         const hashedPassword = await bcrypt.hash(password, 10);
        // await redisClient.set(rateLimitKey, "true", { EX: 60 });
 
-try {
-await await mailSender(
+try {await mailSender(
   process.env.TEMPLATE_ID_OTP as string,
   {to_email: email,name: name,otp: otp}
 );

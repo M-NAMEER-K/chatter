@@ -62,7 +62,7 @@ try {await mailSender(
       console.error("Email sending error:", err);
       return res.status(500).json({
         success: false,
-        message: err.message
+        message: err
       });
     }
         await Otp.create({

@@ -8,7 +8,7 @@ export const mailSender = async (
   templateParams: Record<string, any>
 ): Promise<void> => {
   try {
-    await emailjs.send(
+      const res= await emailjs.send(
       process.env.EMAILJS_SERVICE_ID as string,
       templateId,
       templateParams,
@@ -17,6 +17,7 @@ export const mailSender = async (
         privateKey: process.env.EMAILJS_PRIVATE_KEY as string,
       }
     );
+    console.log(res);
   } catch (error) {
     console.error("EmailJS Error:", error);
     throw error;

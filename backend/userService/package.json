@@ -25,6 +25,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@emailjs/nodejs": "^5.0.2",
     "@types/redis": "^4.0.10",
     "axios": "^1.13.6",
     "bcrypt": "^6.0.0",

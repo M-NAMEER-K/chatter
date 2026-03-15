@@ -8,7 +8,7 @@ export const mailSender = async (
   body: string | number
 ): Promise<void> => {
   await resend.emails.send({
-    from: "RapidTalk <onboarding@rapidtalk>",
+    from: "RapidTalk <onboarding@resend.dev>",
     to: email,
     subject,
     html: `${body}`

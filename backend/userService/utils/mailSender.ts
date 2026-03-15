@@ -1,28 +1,16 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const mailSender = async (
   email: string,
   subject: string,
   body: string | number
 ): Promise<void> => {
-
-  const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.GMAIL,
-    pass: process.env.PASS
-  },
-  tls: {
-    rejectUnauthorized: false
-  }
-});
-
-  await transporter.sendMail({
-    from: `"RapidTalk" <${process.env.GMAIL}>`,
+  await resend.emails.send({
+    from: "RapidTalk <onboarding@rapidtalk>",
     to: email,
     subject,
-     html: `${body}`
+    html: `${body}`
   });
 };

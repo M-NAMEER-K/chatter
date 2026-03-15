@@ -158,7 +158,7 @@ useEffect(() => {
               <div className="flex flex-col w-full">
 
                 <div className="font-semibold">
-                  {chat.user?.data?.name}
+                  {chat.user?.name}
                 </div>
 
 

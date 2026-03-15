@@ -7,9 +7,9 @@ import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import crypto from "crypto"
 import {resetPasswordTemplate} from "../mailTemplates/ResetPassword"
-import {otpTemplate} from "../mailTemplates/Otp"
+import dotenv from "dotenv"
 import { AuthenticatedRequest } from "../middlewares/isAuth";
-
+dotenv.config();
 export const sendOtp=async(req:Request,res:Response):Promise<Response>=>{
       try{
 
@@ -55,11 +55,10 @@ export const sendOtp=async(req:Request,res:Response):Promise<Response>=>{
        // await redisClient.set(rateLimitKey, "true", { EX: 60 });
 
 try {
-      await mailSender(
-        email,
-        "RapidTalk - Email Verification",
-        otpTemplate(otp, name)
-      );
+await await mailSender(
+  process.env.TEMPLATE_ID_OTP as string,
+  {to_email: email,name: name,otp: otp}
+);
     } catch (err:any) {
       console.error("Email sending error:", err);
       return res.status(500).json({
@@ -112,8 +111,15 @@ export const resendOtp = async (req: Request, res: Response): Promise<Response> 
     await otpDoc.save();
 
     //await redisClient.set(rateLimitKey, "true", { EX: 60 });
-    await mailSender(email, "RapidTalk", otpDoc.otp);
-
+    await mailSender(
+  process.env.TEMPLATE_ID_OTP as string,
+  {
+    to_email: email,
+    name: otpDoc.name,
+    otp: otpDoc.otp
+  }
+);
+    
     return res.status(200).json({
       success: true,
       message: "OTP resent successfully",
@@ -269,7 +275,14 @@ export const forgotPassword=async(req:Request,res:Response):Promise<Response>=>{
   // 4️⃣ Email link
   const resetURL = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
- await mailSender( email, "Reset Your Password", resetPasswordTemplate(resetURL));
+await mailSender(
+  process.env.TEMPLATE_ID2_PASSWORD_RESET as string,
+  {
+    to_email: email,
+    name: user.name,
+    reset_link: resetURL
+  }
+);
 
   return res.status(200).json({
     success: true,

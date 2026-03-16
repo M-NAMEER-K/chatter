@@ -140,7 +140,7 @@ const handleResendOtp=async()=>{
                                               onChange={e=> handleInputChange(index,e.target.value)}
                                               onKeyDown={e=>handleKeyDown(index,e)}
                                               onPaste={index===0?handlePaste:undefined}
-                                              className="w-[10%] text-white bg-gray-700  rounded-lg p-2  focus:outline-1  focus:outline-gray-300"/>
+                                              className="w-[10%] text-white bg-gray-700  text-center rounded-lg p-2  focus:outline-1  focus:outline-gray-300"/>
                                             
     ))
                                       }

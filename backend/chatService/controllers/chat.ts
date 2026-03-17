@@ -59,7 +59,7 @@ export const getAllChats=async ( req:AuthenticatedRequest, res:Response) : Promi
 
      const chatWithUserData=await Promise.all(
            chats.map(
-               async(chat)=>{ constconst otherUserId = chat.users.find(
+               async(chat)=>{ const otherUserId = chat.users.find(
   (id) => id.toString() !== userId.toString()
 );
              

@@ -80,7 +80,7 @@ export const getAllChats=async ( req:AuthenticatedRequest, res:Response) : Promi
                   
                 console.log("data:",data);
                   return {
-                      user:data,
+                      user:data.data,
                       chat:{
                          ...chat.toObject(),
                          latestMessage:chat.latestMessage || null,

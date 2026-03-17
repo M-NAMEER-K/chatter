@@ -24,6 +24,12 @@ export const isAuth = async(req: AuthenticatedRequest, res: Response, next: Next
     const decoded = await jwt.verify(token, process.env.SECRET_KEY!) as DecodedToken;
    
     req.user = decoded;
+
+    console.log("===== AUTH DEBUG =====");
+console.log("Cookies:", req.cookies);
+console.log("Auth Header:", req.headers.authorization);
+console.log("Extracted Token:", token);
+console.log("======================");
     next();
   } catch {
     res.clearCookie("token");

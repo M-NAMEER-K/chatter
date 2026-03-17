@@ -59,7 +59,9 @@ export const getAllChats=async ( req:AuthenticatedRequest, res:Response) : Promi
 
      const chatWithUserData=await Promise.all(
            chats.map(
-               async(chat)=>{ const otherUserId=chat.users.find((id)=>id!==userId)
+               async(chat)=>{ constconst otherUserId = chat.users.find(
+  (id) => id.toString() !== userId.toString()
+);
              
                     const unseenCount=await Messages.countDocuments({
                          chatId:chat._id,

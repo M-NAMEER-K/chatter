@@ -106,7 +106,7 @@ useEffect(()=>{
       const fetchedUser = result.data.user.data;
       setUser(fetchedUser);
 
-       setIsFriend(result.data.user.isFriend)
+       setIsFriend(result.data.user.data.isFriend)
 
      
       if (result.data.messages) setChats(result.data.messages);

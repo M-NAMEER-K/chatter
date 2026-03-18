@@ -118,6 +118,7 @@ const fetchAllUsers = async () => {
           Toast.success("Friend request cancelled");
         }
       } else {
+        console.log("Sending request to:", receiverId);
         const res = await sendFriendRequestAPI(receiverId);
 
         if (res.data.success) {

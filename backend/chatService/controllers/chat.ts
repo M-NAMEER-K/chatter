@@ -408,7 +408,8 @@ console.log(data);
              console.log(err);
              return res.json({
                messages,
-               user:{_id:otherUserId , name:"Unknown user"}
+               user:{_id:otherUserId , name:"Unknown user",
+                    isFriend:false}
              });
        }   
 }

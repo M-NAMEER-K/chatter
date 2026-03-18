@@ -120,6 +120,7 @@ const fetchAllUsers = async () => {
       } else {
         console.log("Sending request to:", receiverId);
         const res = await sendFriendRequestAPI(receiverId);
+        console.log(res);
 
         if (res.data.success) {
           setRequestedUsers(prev => new Set(prev).add(receiverId));

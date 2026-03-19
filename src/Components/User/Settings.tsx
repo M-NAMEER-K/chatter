@@ -8,9 +8,9 @@ import { FaRegEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 const Settings=()=>{
     const userId:string|undefined = useSelector((state: RootState) => state.auth.user?._id);
-    if(!userId){
-         return null;
-    }
+   if (!userId) {
+  return <Navigate to="/login" />;
+}
        const navigate=useNavigate();
        const dispatch=useDispatch();
        const [userName,setUsername]=useState<string>("");

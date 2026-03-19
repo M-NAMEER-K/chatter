@@ -9,7 +9,7 @@ import { formatTime } from "../Utils/formatTime";
 import { socket } from "../../services/socket/socket";
 
 const ChatsTab = () => {
- const [loading, setLoading] = useState(true);
+
   const [chats, setChats] = useState<any[]>([]);
   const navigate = useNavigate();
 

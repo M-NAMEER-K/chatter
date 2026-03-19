@@ -340,7 +340,7 @@ useEffect(()=>{
             />
           ) : (
             <div className="w-20 h-15 md:w-10 md:h-10 rounded-full object-cover bg-gray-700 flex items-center justify-center">
-              <CgProfile className="text-white" size={50} />
+              <CgProfile className="text-white" size={55} />
             </div>
           )}
         </div>

@@ -6,7 +6,7 @@ import{getMyFriendsAPI} from "../../services/operations/authOps"
 import {sendFriendRequestAPI,cancelFriendRequestAPI,sentRequestAPI,getPendingRequestAPI} from "../../services/operations/requestOps";
 import Toast from "react-hot-toast";
 import {socket} from "../../services/socket/socket"
-import Loading from "../utils/Loading";
+import Loading from "../Utils/Loading";
 
 export interface IUser {
   _id: string;

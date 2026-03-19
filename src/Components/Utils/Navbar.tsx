@@ -53,7 +53,7 @@ const Navbar=()=>{
                               <input type="text" placeholder="Search"  onChange={(e) => dispatch(setSearchQuery(e.target.value))} className=" w-full outline-0 p-1 text-black "/>
                               <FaSearch className="hover:text-yellow-500" size={25}/>
                             </div>
-                            <div className="w-[30%] flex justify-end gap-x-1 md:gap-x-3 ">
+                            <div className="w-[30%] flex justify-end gap-x-1 md:gap-x-3 right-5 ">
                                    {navIcons.map(({id,path,icon:Icon}) => (
 
   <button

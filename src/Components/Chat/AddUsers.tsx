@@ -18,6 +18,7 @@ export interface IUser {
 
 const AddUsers = () => {
   const [allUsers, setAllUsers] = useState<IUser[]>([]);
+  const [loading, setLoading] = useState(true);
   const [requestedUsers, setRequestedUsers] = useState<Set<string>>(new Set());
   const [receivedRequests, setReceivedRequests] = useState<Set<string>>(new Set());
 
@@ -37,7 +38,7 @@ const fetchAllUsers = async () => {
   if (!loggedInUserId) return;
 
   try {
-
+     setLoading(true);
     const usersRes = await allUsersAPI();
 
     const sentReqRes = await sentRequestAPI();
@@ -73,6 +74,8 @@ const fetchAllUsers = async () => {
 
   } catch {
     Toast.error("Failed to fetch users");
+  }finally {
+    setLoading(false);
   }
 };
 
@@ -134,7 +137,7 @@ const fetchAllUsers = async () => {
     }
   };
 
-  
+   if (loading) return <Loading />;
 
   /* ================= UI ================= */
 

@@ -37,7 +37,7 @@ const fetchAllUsers = async () => {
   if (!loggedInUserId) return;
 
   try {
-     setLoading(true);
+    
     const usersRes = await allUsersAPI();
 
     const sentReqRes = await sentRequestAPI();
@@ -73,8 +73,6 @@ const fetchAllUsers = async () => {
 
   } catch {
     Toast.error("Failed to fetch users");
-  }finally {
-    setLoading(false);
   }
 };
 

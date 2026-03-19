@@ -8,7 +8,7 @@ import { type RootState } from "../../reducer/store";
 import { socket } from "../../services/socket/socket";
 
 const FriendsTab = () => {
-  const [loading, setLoading] = useState(true);
+
   const [friends, setFriends] = useState<any[]>([]);
   const searchQuery = useSelector((state: RootState) => state.search.query);
   const navigate = useNavigate();

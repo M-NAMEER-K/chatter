@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { type RootState } from "../../reducer/store";
 import { formatTime } from "../Utils/formatTime";
-import Loading from "../utils/Loading";
+import Loading from "../Utils/Loading";
 import { socket } from "../../services/socket/socket";
 
 const ChatsTab = () => {

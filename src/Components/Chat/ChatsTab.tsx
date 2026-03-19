@@ -22,16 +22,14 @@ const ChatsTab = () => {
 
     const fetchChats = async () => {
 
-      try {setLoading(true);
+      try {
         const res = await getAllChatsAPI();
         console.log(res);
         setChats(res.data.data);
       }
       catch (err) {
         console.log(err);
-      } finally {
-    setLoading(false);
-  }
+      }
 
     };
 

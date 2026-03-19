@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { type RootState } from "../../reducer/store";
 import { formatTime } from "../Utils/formatTime";
-
+import Loading from "../Utils/Loading";
 import { socket } from "../../services/socket/socket";
 
 const ChatsTab = () => {
-
+ const [loading, setLoading] = useState(true);
   const [chats, setChats] = useState<any[]>([]);
   const navigate = useNavigate();
 
@@ -23,12 +23,15 @@ const ChatsTab = () => {
     const fetchChats = async () => {
 
       try {
+        setLoading(true);
         const res = await getAllChatsAPI();
         console.log(res);
         setChats(res.data.data);
       }
       catch (err) {
         console.log(err);
+      }finally{
+         setLoading(false);
       }
 
     };
@@ -111,7 +114,7 @@ useEffect(() => {
     navigate(`/chat/${chatId}`);
   };
 
- 
+  if (loading && chats.length === 0) return <Loading />;
 
   return (
 

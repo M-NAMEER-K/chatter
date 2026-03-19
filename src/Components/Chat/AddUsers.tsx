@@ -18,7 +18,8 @@ export interface IUser {
 
 const AddUsers = () => {
   const [allUsers, setAllUsers] = useState<IUser[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [pageLoading, setPageLoading] = useState(true);   // for initial load
+const [actionLoading, setActionLoading] = useState(false); // for button
   const [requestedUsers, setRequestedUsers] = useState<Set<string>>(new Set());
   const [receivedRequests, setReceivedRequests] = useState<Set<string>>(new Set());
 
@@ -36,7 +37,7 @@ const fetchAllUsers = async () => {
 
   if (!loggedInUserId) return;
 
-  try {
+  try {   setPageLoading(true);
     
     const usersRes = await allUsersAPI();
 
@@ -73,6 +74,8 @@ const fetchAllUsers = async () => {
 
   } catch {
     Toast.error("Failed to fetch users");
+  }finally {
+    setPageLoading(false);
   }
 };
 
@@ -104,7 +107,7 @@ const fetchAllUsers = async () => {
 
   const handleRequestToggle = async (receiverId: string) => {
     try {
-      setLoading(true);
+   setActionLoading(true);
 
       if (requestedUsers.has(receiverId)) {
         const res = await cancelFriendRequestAPI(receiverId);
@@ -130,13 +133,13 @@ const fetchAllUsers = async () => {
     } catch (error: any) {
       Toast.error(error?.response?.data?.message || "Something went wrong");
     } finally {
-      setLoading(false);
+      setActionLoading(false);
     }
   };
 
 
   /* ================= UI ================= */
-
+      if (pageLoading) return <Loading />;
   return (
     <div className="h-screen w-screen bg-gray-700 flex items-center flex-col p-4 overflow-y-auto">
       <h1 className="text-white text-2xl mb-4">Add Users</h1>
@@ -160,7 +163,7 @@ const isReceived = receivedRequests.has(user._id);
             <div className="w-[50%] font-medium">{user.name}</div>
 
             <button
-  disabled={loading || isReceived}
+  disabled={actionLoading || isReceived}
   onClick={() => handleRequestToggle(user._id)}
   className={ `w-[50%] md:w-[30%] rounded-lg p-1 text-white ${
     isReceived

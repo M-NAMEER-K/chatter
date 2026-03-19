@@ -335,11 +335,11 @@ useEffect(()=>{
           {user?.profileImage?.url ? (
             <img
               src={user.profileImage.url}
-              alt={user?.name}
-              className="w-20 h-20 md:w-10 md:h-10 rounded-full object-cover"
+              alt={user?.name || "User"}
+              className="w-20 h-15 md:w-10 md:h-10 rounded-full object-cover"
             />
           ) : (
-            <div className="w-20 h-20 md:w-10 md:h-10 rounded-full object-cover bg-gray-700 flex items-center justify-center">
+            <div className="w-20 h-15 md:w-10 md:h-10 rounded-full object-cover bg-gray-700 flex items-center justify-center">
               <CgProfile className="text-white" size={40} />
             </div>
           )}

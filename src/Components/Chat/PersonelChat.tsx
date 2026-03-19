@@ -216,17 +216,27 @@ useEffect(()=>{
   // NEW MESSAGE HANDLER
   // -------------------------
   const handleNewMessage = (newMessage: any) => {
-    if (newMessage.chatId !== chatid) return;
+  if (newMessage.chatId !== chatid) return;
 
-    setChats(prev => {
-      if (prev.some(msg => msg._id === newMessage._id)) return prev;
-      return [...prev, newMessage];
-    });
+  setChats(prev => {
+    
+    if (prev.some(msg => msg._id === newMessage._id)) {
+      return prev;
+    }
+
+    const updated = [...prev, newMessage];
 
     const isMine = newMessage.sender === loggedInUserId;
-    if (isMine || isAtBottom) scrollToBottom(true);
-    else setUnreadCount(prev => prev + 1);
-  };
+
+    if (isMine || isAtBottom) {
+      scrollToBottom(true);
+    } else {
+      setUnreadCount(prev => prev + 1);
+    }
+
+    return updated;
+  });
+};
 
   useEffect(() => {
     if (!chatid) return;

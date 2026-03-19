@@ -53,7 +53,7 @@ const Navbar=()=>{
                               <input type="text" placeholder="Search"  onChange={(e) => dispatch(setSearchQuery(e.target.value))} className=" w-full outline-0 p-1 text-black "/>
                               <FaSearch className="hover:text-yellow-500" size={25}/>
                             </div>
-                            <div className="w-[30%] flex justify-end gap-x-1 md:gap-x-3 right-5 ">
+                            <div className="w-[30%] flex justify-end gap-x-1 md:gap-x-3  ">
                                    {navIcons.map(({id,path,icon:Icon}) => (
 
   <button
@@ -79,11 +79,11 @@ const Navbar=()=>{
                             
                           </div>
                     </div>
-                    <div className="w-[10%]  flex items-center  justify-end ">
+                    <div className="w-[10%]  flex items-center  justify-end  ">
                            <RxHamburgerMenu size={30} onClick={()=>setVisibility(prev => (prev === "hidden" ? "block" : "hidden"))}/>
                     </div>
                     
-                    <div className={`absolute w-[11%] border border-yellow-500 left-[88%] top-[75%] ${visibility}
+                    <div className={`absolute w-[11%] border border-yellow-500 left-[88%] top-[75%] right-5 ${visibility}
                     flex flex-col items-center`}>
                                       {menuItems.map((item, index) =>
           item.text === "Logout" ? (

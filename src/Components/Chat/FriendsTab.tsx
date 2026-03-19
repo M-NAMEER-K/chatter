@@ -6,7 +6,7 @@ import { CgProfile } from "react-icons/cg";
 import { useSelector } from "react-redux";
 import { type RootState } from "../../reducer/store";
 import { socket } from "../../services/socket/socket";
-import Loading from "../utils/Loading";
+import Loading from "../Utils/Loading";
 const FriendsTab = () => {
   const [loading, setLoading] = useState(true);
   const [friends, setFriends] = useState<any[]>([]);

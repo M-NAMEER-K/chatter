@@ -6,7 +6,7 @@ import { CgProfile } from "react-icons/cg";
 import { useSelector } from "react-redux";
 import { type RootState } from "../../reducer/store";
 import { socket } from "../../services/socket/socket";
-import Loading from "../Utils/Loading";
+import SectionLoader from "../Utils/SectionLoader";
 const FriendsTab = () => {
    const [loading, setLoading] = useState(true);
   const [friends, setFriends] = useState<any[]>([]);
@@ -68,7 +68,7 @@ const FriendsTab = () => {
       console.log(err);
     }
   };
-     if (loading && friends.length === 0) return <Loading />;
+     if (loading && friends.length === 0) return <SectionLoader/>;
   return (
     <div className="h-full w-screen overflow-y-auto text-white">
 

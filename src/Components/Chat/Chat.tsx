@@ -38,9 +38,17 @@ const Chat = () => {
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto">
-        {activeTab === "chats" ? <ChatsTab /> : <FriendsTab />}
-      </div>
+   <div className="flex-1 overflow-y-auto">
+
+  <div style={{ display: activeTab === "chats" ? "block" : "none" }}>
+    <ChatsTab />
+  </div>
+
+  <div style={{ display: activeTab === "friends" ? "block" : "none" }}>
+    <FriendsTab />
+  </div>
+
+</div>
     </div>
   );
 };

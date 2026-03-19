@@ -6,9 +6,9 @@ import { CgProfile } from "react-icons/cg";
 import { useSelector } from "react-redux";
 import { type RootState } from "../../reducer/store";
 import { socket } from "../../services/socket/socket";
-
+import Loading from "../Utils/Loading";
 const FriendsTab = () => {
-
+   const [loading, setLoading] = useState(true);
   const [friends, setFriends] = useState<any[]>([]);
   const searchQuery = useSelector((state: RootState) => state.search.query);
   const navigate = useNavigate();
@@ -19,11 +19,13 @@ const FriendsTab = () => {
 
   // ✅ Fetch friends (accessible everywhere)
   const fetchFriends = async () => {
-    try { 
+    try { setLoading(true);
       const res = await getMyFriendsAPI();
       setFriends(res.data.data);
     } catch (err) {
       console.log(err);
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -66,7 +68,7 @@ const FriendsTab = () => {
       console.log(err);
     }
   };
-    
+     if (loading && friends.length === 0) return <Loading />;
   return (
     <div className="h-full w-screen overflow-y-auto text-white">
 

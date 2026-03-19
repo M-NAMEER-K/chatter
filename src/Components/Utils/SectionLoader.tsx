@@ -5,3 +5,4 @@ const SectionLoader = () => {
     </div>
   );
 };
+export default SectionLoader;

@@ -68,7 +68,7 @@ const FriendsTab = () => {
       console.log(err);
     }
   };
-
+     if (loading) return <Loading />;
   return (
     <div className="h-full w-screen overflow-y-auto text-white">
 

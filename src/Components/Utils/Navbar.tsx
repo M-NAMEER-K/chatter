@@ -83,7 +83,7 @@ const Navbar=()=>{
                            <RxHamburgerMenu size={30} onClick={()=>setVisibility(prev => (prev === "hidden" ? "block" : "hidden"))}/>
                     </div>
                     
-                    <div className={`absolute w-[11%] border border-yellow-500 left-[88%] top-[75%] right-5 ${visibility}
+                    <div className={`absolute w-[20%] md-w-[11%] border border-yellow-500 left-[88%] top-[75%] ${visibility}
                     flex flex-col items-center`}>
                                       {menuItems.map((item, index) =>
           item.text === "Logout" ? (

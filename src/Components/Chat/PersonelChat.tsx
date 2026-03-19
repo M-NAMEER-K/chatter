@@ -346,7 +346,7 @@ useEffect(()=>{
         </div>
 
         <div className="w-full ">
-          <div className="font-medium text-xl">{user?.name}</div>
+          <div className="font-medium text-xl">{user?.name  || "User"}</div>
           <div className="text-sm h-5">
 {isTyping ? (
   <span className="text-green-600">Typing...</span>
@@ -373,7 +373,7 @@ useEffect(()=>{
         >
           {chats.length === 0 ? (
             <p className="text-center mt-5">
-              You have not started any chat with {user?.name}
+              You have not started any chat with {user?.name  || "User"}
             </p>
           ) : (
             chats.map((chat, index) => {

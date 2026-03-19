@@ -39,7 +39,7 @@ const ForgotPassword = () => {
 
   return (
     <div className="h-screen w-screen bg-gray-700 text-white flex justify-center">
-      <div className="w-[50%] mt-10">
+      <div className="w-[98%] md:w-[60%] mt-10">
         <div className="text-xl text-center">
           Don’t worry — we’re here to help you reset your password.
         </div>
